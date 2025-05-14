@@ -319,7 +319,11 @@ function PressKitSection() {
                 className="w-full gap-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 rounded-full"
                 asChild
               >
-                <a href="/logo_pack.zip" download>
+                <a
+                  href="https://drive.google.com/uc?export=view&id=1cC6OCjWF3ZMMpAKXeOyTbevYPQ6Sh4_P"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Download className="h-4 w-4" />
                   Download
                 </a>
@@ -339,9 +343,16 @@ function PressKitSection() {
               <Button
                 variant="outline"
                 className="w-full gap-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 rounded-full"
+                asChild
               >
-                <Download className="h-4 w-4" />
-                Download
+                <a
+                  href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="h-4 w-4" />
+                  Download
+                </a>
               </Button>
             </div>
 
