@@ -115,15 +115,15 @@ function Header() {
 }
 
 function HeroSection() {
-  const logoPath = useLogoPath()
+  // const logoPath = useLogoPath() // No longer needed for hero image
 
   return (
     <section id="top" className="py-20 md:py-32 bg-background relative">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
-            src={logoPath || "/placeholder.svg"}
-            alt="Massera Logo"
+            src="/Massera PromoVideo-Cover.jpg"
+            alt="Massera Promo Video Cover"
             width={300}
             height={300}
             className="w-64 md:w-80 h-auto mb-6"
