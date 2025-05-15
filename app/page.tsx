@@ -19,6 +19,7 @@ export default function Home() {
         <FaqSection />
         <MediaSection />
         <CreditsSection />
+        <AwardsSection />
       </main>
       <Footer />
     </div>
@@ -418,6 +419,24 @@ function CreditsSection() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function AwardsSection() {
+  return (
+    <section id="awards" className="py-20 bg-background scroll-mt-16">
+      <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Awards</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl">
+          Winner – XRCC Hack 2024<br />Meta Hobbies & Skill Building, Berlin
+        </p>
+        <img
+          src="/award_berlin.png"
+          alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
+          className="w-full max-w-md rounded-xl shadow-lg border"
+        />
       </div>
     </section>
   );
