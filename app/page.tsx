@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
+import React, { useState } from "react"
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
         <HeroSection />
         <TrailerSection />
         <FaqSection />
-        <PressKitSection />
+        <MediaSection />
+        <CreditsSection />
+        <AwardsSection />
       </main>
       <Footer />
     </div>
@@ -48,11 +51,11 @@ function Header() {
           <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">
             FAQ
           </a>
-          <a href="#press-kit" className="text-sm font-medium hover:text-primary transition-colors">
-            Press Kit
+          <a href="#media" className="text-sm font-medium hover:text-primary transition-colors">
+            Media
           </a>
           <a
-            href="https://www.meta.com/experiences/29897947229804602/"
+            href="https://www.meta.com/experiences/9851138398306895/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
@@ -90,16 +93,16 @@ function Header() {
                 FAQ
               </a>
               <a
-                href="#press-kit"
+                href="#media"
                 className="text-lg font-medium hover:text-primary transition-colors"
                 onClick={(e) => {
                   document.querySelector(".sheet-overlay")?.dispatchEvent(new MouseEvent("click", { bubbles: true }))
                 }}
               >
-                Press Kit
+                Media
               </a>
               <a
-                href="https://www.meta.com/experiences/29897947229804602/"
+                href="https://www.meta.com/experiences/9851138398306895/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 items-center justify-center rounded-full w-full mt-4 bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
@@ -115,18 +118,18 @@ function Header() {
 }
 
 function HeroSection() {
-  const logoPath = useLogoPath()
+  // const logoPath = useLogoPath() // No longer needed for hero image
 
   return (
     <section id="top" className="py-20 md:py-32 bg-background relative">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
-            src={logoPath || "/placeholder.svg"}
-            alt="Massera Logo"
-            width={300}
-            height={300}
-            className="w-64 md:w-80 h-auto mb-6"
+            src="/hero_bg.png"
+            alt="Massera Hero Background"
+            width={1200}
+            height={1200}
+            className="w-[64rem] md:w-[80rem] h-auto mb-6"
             priority
           />
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
@@ -139,7 +142,7 @@ function HeroSection() {
             3S
           </p>
           <a
-            href="https://www.meta.com/experiences/29897947229804602/"
+            href="https://www.meta.com/experiences/9851138398306895/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 gap-2"
@@ -293,100 +296,150 @@ function FaqSection() {
   )
 }
 
-function PressKitSection() {
+function MediaSection() {
+  const [openImage, setOpenImage] = useState<string | null>(null);
+  const images = [
+    { src: "/screenshots/1.PNG", alt: "Screenshot 1" },
+    { src: "/screenshots/2.PNG", alt: "Screenshot 2" },
+    { src: "/screenshots/3.jpg", alt: "Screenshot 3" },
+    { src: "/screenshots/7.PNG", alt: "Screenshot 4" },
+  ];
+  const logos = [
+    { src: "/logo_black.png", alt: "Massera Logo Black", style: {} },
+    { src: "/logo_white.png", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
+  ];
+
   return (
-    <section id="press-kit" className="py-20 bg-background scroll-mt-16">
+    <section id="media" className="py-20 bg-background scroll-mt-16">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Press Kit</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Media</h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Download official Massera assets for media and promotional use.
+            Explore screenshots from the Massera application.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-4">
-            <div className="bg-card rounded-xl p-6 flex flex-col items-center space-y-4 shadow-sm border">
-              <Image
-                src="/placeholder.svg?height=100&width=100"
-                alt="Massera Logo Pack"
-                width={100}
-                height={100}
-                className="rounded-md"
-              />
-              <h3 className="font-medium text-lg">Logo Pack</h3>
-              <p className="text-sm text-muted-foreground">Official logos in various formats</p>
-              <Button
-                variant="outline"
-                className="w-full gap-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 rounded-full"
-                asChild
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 w-full max-w-3xl mt-4">
+            {images.map((img, idx) => (
+              <button
+                key={img.src}
+                className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden shadow-lg border focus:outline-none"
+                onClick={() => setOpenImage(img.src)}
+                aria-label={`Open ${img.alt}`}
+                style={{ background: "none", padding: 0, border: "none", cursor: "pointer" }}
               >
-                <a
-                  href="https://drive.google.com/uc?export=view&id=1cC6OCjWF3ZMMpAKXeOyTbevYPQ6Sh4_P"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Image src={img.src} alt={img.alt} width={800} height={450} className="object-cover w-full h-full transition-transform hover:scale-105" />
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-col items-center mt-10 w-full">
+            <h3 className="text-xl font-semibold mb-4">Official Logos</h3>
+            <div className="flex flex-row gap-8 justify-center items-center">
+              {logos.map((logo, idx) => (
+                <button
+                  key={logo.src}
+                  onClick={() => setOpenImage(logo.src)}
+                  aria-label={`Open ${logo.alt}`}
+                  style={{ background: "none", padding: 0, border: "none", cursor: "pointer" }}
+                  className="focus:outline-none"
                 >
-                  <Download className="h-4 w-4" />
-                  Download
-                </a>
-              </Button>
-            </div>
-
-            <div className="bg-card rounded-xl p-6 flex flex-col items-center space-y-4 shadow-sm border">
-              <Image
-                src="/placeholder.svg?height=100&width=100"
-                alt="Massera Screenshots"
-                width={100}
-                height={100}
-                className="rounded-md"
-              />
-              <h3 className="font-medium text-lg">Screenshots</h3>
-              <p className="text-sm text-muted-foreground">High-resolution app screenshots</p>
-              <Button
-                variant="outline"
-                className="w-full gap-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 rounded-full"
-                asChild
-              >
-                <a
-                  href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="h-4 w-4" />
-                  Download
-                </a>
-              </Button>
-            </div>
-
-            <div className="bg-card rounded-xl p-6 flex flex-col items-center space-y-4 shadow-sm border">
-              <Image
-                src="/placeholder.svg?height=100&width=100"
-                alt="Massera Press Release"
-                width={100}
-                height={100}
-                className="rounded-md"
-              />
-              <h3 className="font-medium text-lg">Press Release</h3>
-              <p className="text-sm text-muted-foreground">Official announcement and details</p>
-              <Button
-                variant="outline"
-                className="w-full gap-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 rounded-full"
-              >
-                <Download className="h-4 w-4" />
-                Download
-              </Button>
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-40 w-auto bg-transparent transition-transform hover:scale-105"
+                    style={logo.style}
+                  />
+                </button>
+              ))}
             </div>
           </div>
-
-          <Button
-            variant="default"
-            className="mt-8 gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
+          <a
+            href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium shadow hover:bg-primary/90 transition-colors"
           >
-            <Download className="h-4 w-4" />
-            Download Complete Press Kit
-          </Button>
+            <Download className="h-5 w-5" />
+            Download media archive
+          </a>
+        </div>
+      </div>
+      {openImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setOpenImage(null)}
+          style={{ cursor: "zoom-out" }}
+        >
+          <img
+            src={openImage}
+            alt="Full Screenshot or Logo"
+            className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white"
+            onClick={e => e.stopPropagation()}
+            style={{ cursor: "auto" }}
+          />
+        </div>
+      )}
+    </section>
+  );
+}
+
+function CreditsSection() {
+  return (
+    <section id="credits" className="py-20 bg-muted scroll-mt-16">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Credits</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Massera is created by a small, passionate team dedicated to reimagining connection and skill-building in Mixed Reality. Meet the people behind the app:
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center mt-6">
+            <div className="flex flex-col items-center">
+              <span className="text-xl font-semibold">Volodymyr Tormoz</span>
+              <span className="text-md text-muted-foreground mb-2">Lead Developer</span>
+              <a
+                href="https://www.linkedin.com/in/volodymyr-tormoz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline flex items-center gap-1"
+              >
+                LinkedIn
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+              </a>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-xl font-semibold">Artem Kolomatskyi</span>
+              <span className="text-md text-muted-foreground mb-2">XR Product Designer</span>
+              <a
+                href="https://www.linkedin.com/in/artemkolomatskyi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline flex items-center gap-1"
+              >
+                LinkedIn
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
+}
+
+function AwardsSection() {
+  return (
+    <section id="awards" className="py-20 bg-background scroll-mt-16">
+      <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Awards</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl">
+          Winner – XRCC Hack 2024<br />Meta Hobbies & Skill Building, Berlin
+        </p>
+        <img
+          src="/award_berlin.png"
+          alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
+          className="w-full max-w-md rounded-xl shadow-lg border"
+        />
+      </div>
+    </section>
+  );
 }
 
 function Footer() {
