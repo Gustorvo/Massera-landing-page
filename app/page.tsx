@@ -124,8 +124,8 @@ function HeroSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
-            src="/Massera PromoVideo-Cover.jpg"
-            alt="Massera Promo Video Cover"
+            src="/hero_bg.png"
+            alt="Massera Hero Background"
             width={1200}
             height={1200}
             className="w-[64rem] md:w-[80rem] h-auto mb-6"
