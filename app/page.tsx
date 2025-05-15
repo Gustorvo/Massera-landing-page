@@ -302,6 +302,10 @@ function MediaSection() {
     { src: "/screenshots/3.jpg", alt: "Screenshot 3" },
     { src: "/screenshots/7.PNG", alt: "Screenshot 4" },
   ];
+  const logos = [
+    { src: "/logo_black.png", alt: "Massera Logo Black", style: {} },
+    { src: "/logo_white.png", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
+  ];
 
   return (
     <section id="media" className="py-20 bg-background scroll-mt-16">
@@ -324,6 +328,27 @@ function MediaSection() {
               </button>
             ))}
           </div>
+          <div className="flex flex-col items-center mt-10 w-full">
+            <h3 className="text-xl font-semibold mb-4">Official Logos</h3>
+            <div className="flex flex-row gap-8 justify-center items-center">
+              {logos.map((logo, idx) => (
+                <button
+                  key={logo.src}
+                  onClick={() => setOpenImage(logo.src)}
+                  aria-label={`Open ${logo.alt}`}
+                  style={{ background: "none", padding: 0, border: "none", cursor: "pointer" }}
+                  className="focus:outline-none"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-40 w-auto bg-transparent transition-transform hover:scale-105"
+                    style={logo.style}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
           <a
             href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
             target="_blank"
@@ -331,7 +356,7 @@ function MediaSection() {
             className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium shadow hover:bg-primary/90 transition-colors"
           >
             <Download className="h-5 w-5" />
-            Download all screenshots as archive
+            Download media archive
           </a>
         </div>
       </div>
@@ -343,7 +368,7 @@ function MediaSection() {
         >
           <img
             src={openImage}
-            alt="Full Screenshot"
+            alt="Full Screenshot or Logo"
             className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white"
             onClick={e => e.stopPropagation()}
             style={{ cursor: "auto" }}
