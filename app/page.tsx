@@ -124,9 +124,9 @@ function HeroSection() {
           <Image
             src="/Massera PromoVideo-Cover.jpg"
             alt="Massera Promo Video Cover"
-            width={300}
-            height={300}
-            className="w-64 md:w-80 h-auto mb-6"
+            width={1200}
+            height={1200}
+            className="w-[64rem] md:w-[80rem] h-auto mb-6"
             priority
           />
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
