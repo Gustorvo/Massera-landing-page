@@ -324,6 +324,15 @@ function MediaSection() {
               </button>
             ))}
           </div>
+          <a
+            href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium shadow hover:bg-primary/90 transition-colors"
+          >
+            <Download className="h-5 w-5" />
+            Download all screenshots as archive
+          </a>
         </div>
       </div>
       {openImage && (
