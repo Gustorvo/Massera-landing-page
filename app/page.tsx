@@ -239,6 +239,13 @@ function FaqSection() {
               </AccordionContent>
             </AccordionItem>
 
+            <AccordionItem value="item-4a">
+              <AccordionTrigger>Does the Massera require access to my camera or record my room?</AccordionTrigger>
+              <AccordionContent>
+                No, Massera does not require access to your camera or record your environment. Your privacy is fully respected. We use only hand tracking—no video, no room scanning, and no body visuals. For body mapping, you simply use your hands to define placement. It's as safe and private as any other Mixed Reality app available on the Meta Horizon Store.
+              </AccordionContent>
+            </AccordionItem>
+
             <AccordionItem value="item-5">
               <AccordionTrigger>Are there any specific space requirements to use Massera?</AccordionTrigger>
               <AccordionContent>
