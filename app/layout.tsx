@@ -7,9 +7,9 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Massera - Mixed Reality for Meta Quest",
+  title: "Massera – Learn Guided Home Massage on Meta Quest",
   description:
-    "Experience reality like never before with Massera, the groundbreaking Mixed Reality app for Meta Quest.",
+    "Massera is a reimagined way to build massage skills and connection in Mixed Reality. ",
     generator: 'v0.dev'
 }
 
@@ -29,6 +29,25 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-787YJJ5WC7');
         ` }} />
+        {/* SEO Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://massera.app/" />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Massera – Learn Guided Home Massage on Meta Quest" />
+        <meta property="og:description" content="Massera is a reimagined way to build massage skills and connection in Mixed Reality." />
+        <meta property="og:url" content="https://massera.app/" />
+        <meta property="og:image" content="https://massera.app/og-image.png" />
+        <meta property="og:site_name" content="Massera" />
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Massera – Learn Guided Home Massage on Meta Quest" />
+        <meta name="twitter:description" content="Massera is a reimagined way to build massage skills and connection in Mixed Reality." />
+        <meta name="twitter:image" content="https://massera.app/og-image.png" />
+        <meta name="twitter:site" content="@masseraxr" />
+        <meta name="twitter:creator" content="@masseraxr" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
