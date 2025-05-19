@@ -180,10 +180,9 @@ function TrailerSection() {
 
           <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/jYUYRo8u1KA?si=8iJ1K-SG_c43F90z&amp;controls=0"
-              title="Massera Trailer"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768"
+              style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
               allowFullScreen
             ></iframe>
           </div>
@@ -388,34 +387,16 @@ function CreditsSection() {
         <div className="flex flex-col items-center text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Credits</h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Massera is created by a small, passionate team dedicated to reimagining connection and skill-building in Mixed Reality. Meet the people behind the app:
+            Massera is crafted by a visionary team devoted to redefining connection, touch, and learning through the power of Mixed Reality. Meet the minds behind the experience
           </p>
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center mt-6">
             <div className="flex flex-col items-center">
-              <span className="text-xl font-semibold">Volodymyr Tormoz</span>
+              <a href="https://www.linkedin.com/in/volodymyr-tormoz/" target="_blank" rel="noopener noreferrer" className="text-xl font-semibold text-primary hover:underline">Volodymyr Tormoz</a>
               <span className="text-md text-muted-foreground mb-2">Lead Developer</span>
-              <a
-                href="https://www.linkedin.com/in/volodymyr-tormoz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline flex items-center gap-1"
-              >
-                LinkedIn
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-              </a>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-xl font-semibold">Artem Kolomatskyi</span>
-              <span className="text-md text-muted-foreground mb-2">XR Product Designer</span>
-              <a
-                href="https://www.linkedin.com/in/artemkolomatskyi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline flex items-center gap-1"
-              >
-                LinkedIn
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-              </a>
+              <a href="https://www.linkedin.com/in/artemkolomatskyi/" target="_blank" rel="noopener noreferrer" className="text-xl font-semibold text-primary hover:underline">Artem Kolomatskyi</a>
+              <span className="text-md text-muted-foreground mb-2">XR Product Lead</span>
             </div>
           </div>
         </div>
@@ -428,15 +409,14 @@ function AwardsSection() {
   return (
     <section id="awards" className="py-20 bg-background scroll-mt-16">
       <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Awards</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl">
-          Winner – XRCC Hack 2024<br />Meta Hobbies & Skill Building, Berlin
-        </p>
-        <img
-          src="/award_berlin.png"
-          alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
-          className="w-full max-w-md rounded-xl shadow-lg border"
-        />
+        <div className="w-full max-w-md rounded-xl shadow-lg border bg-card py-8 px-4 flex flex-col items-center">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Awards</h2>
+          <img
+            src="/award_berlin.png"
+            alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
+            className="w-full rounded-xl"
+          />
+        </div>
       </div>
     </section>
   );
