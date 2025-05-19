@@ -405,7 +405,7 @@ function CreditsSection() {
             </div>
             <div className="flex flex-col items-center">
               <span className="text-xl font-semibold">Artem Kolomatskyi</span>
-              <span className="text-md text-muted-foreground mb-2">XR Product Designer</span>
+              <span className="text-md text-muted-foreground mb-2">XR Product Lead</span>
               <a
                 href="https://www.linkedin.com/in/artemkolomatskyi/"
                 target="_blank"
