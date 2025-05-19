@@ -387,7 +387,7 @@ function CreditsSection() {
         <div className="flex flex-col items-center text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Credits</h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Massera is created by a small, passionate team dedicated to reimagining connection and skill-building in Mixed Reality. Meet the people behind the app:
+            Massera is crafted by a visionary team devoted to redefining connection, touch, and learning through the power of Mixed Reality. Meet the minds behind the experience
           </p>
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center mt-6">
             <div className="flex flex-col items-center">
