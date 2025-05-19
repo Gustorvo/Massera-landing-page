@@ -445,7 +445,10 @@ function Footer() {
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
+              Website Privacy Policy
+            </Link>
+            <Link href="/app-privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Massera Privacy Policy
             </Link>
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
