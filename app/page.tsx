@@ -535,65 +535,6 @@ function Footer() {
                 />
               </svg>
             </Link>
-            <Link
-              href="https://www.youtube.com/channel/UCxkdqtQEq944NP2KpIFNFhw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="YouTube"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-youtube"
-              >
-                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                <path d="m10 15 5-3-5-3z" />
-              </svg>
-            </Link>
-            <Link
-              href="https://www.reddit.com/r/masseraxr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Reddit"
-            >
-              {/* Reddit logo */}
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M17.5 12c0-.828-.672-1.5-1.5-1.5s-1.5.672-1.5 1.5c0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5zM8 12c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S8 12.829 8 12z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M12 18c2.5 0 4.5-1.343 4.5-3h-9c0 1.657 2 3 4.5 3z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M18.5 8.5c0 .828-.672 1.5-1.5 1.5-.399 0-.76-.156-1.028-.409C14.934 8.705 13.531 8.2 12 8.2s-2.934.505-3.972 1.391c-.268.253-.629.409-1.028.409-.828 0-1.5-.672-1.5-1.5S5.672 7 6.5 7c.213 0 .416.045.6.125C8.194 6.4 10.019 6 12 6s3.806.4 4.9 1.125c.184-.08.387-.125.6-.125.828 0 1.5.672 1.5 1.5z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </div>
