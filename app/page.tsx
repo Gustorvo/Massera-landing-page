@@ -180,10 +180,9 @@ function TrailerSection() {
 
           <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/jYUYRo8u1KA?si=8iJ1K-SG_c43F90z&amp;controls=0"
-              title="Massera Trailer"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video"
+              style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
               allowFullScreen
             ></iframe>
           </div>
