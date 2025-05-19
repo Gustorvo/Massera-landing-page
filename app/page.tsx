@@ -180,7 +180,7 @@ function TrailerSection() {
 
           <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video"
+              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768"
               style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
               allowFullScreen
