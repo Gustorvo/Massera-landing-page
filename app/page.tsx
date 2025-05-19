@@ -121,7 +121,7 @@ function HeroSection() {
   // const logoPath = useLogoPath() // No longer needed for hero image
 
   return (
-    <section id="top" className="py-20 md:py-32 bg-background relative">
+    <section id="top" className="pt-8 md:pt-12 pb-20 md:pb-32 bg-background relative">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
