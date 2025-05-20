@@ -39,13 +39,13 @@ export default function RootLayout({
         <meta property="og:title" content="Massera – Learn Guided Home Massage on Meta Quest" />
         <meta property="og:description" content="Massera is a reimagined way to build massage skills and connection in Mixed Reality." />
         <meta property="og:url" content="https://massera.app/" />
-        <meta property="og:image" content="https://massera.app/og-image.png" />
+        <meta property="og:image" content="https://massera.app/og-image.jpg" />
         <meta property="og:site_name" content="Massera" />
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Massera – Learn Guided Home Massage on Meta Quest" />
         <meta name="twitter:description" content="Massera is a reimagined way to build massage skills and connection in Mixed Reality." />
-        <meta name="twitter:image" content="https://massera.app/og-image.png" />
+        <meta name="twitter:image" content="https://massera.app/og-image.jpg" />
         <meta name="twitter:site" content="@masseraxr" />
         <meta name="twitter:creator" content="@masseraxr" />
       </head>

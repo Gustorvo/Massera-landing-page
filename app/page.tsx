@@ -450,14 +450,14 @@ function FaqSection() {
 function MediaSection() {
   const [openImage, setOpenImage] = useState<string | null>(null);
   const images = [
-    { src: "/screenshots/1.PNG", alt: "Screenshot 1" },
-    { src: "/screenshots/2.PNG", alt: "Screenshot 2" },
-    { src: "/screenshots/3.jpg", alt: "Screenshot 3" },
-    { src: "/screenshots/7.PNG", alt: "Screenshot 4" },
+    { src: "/screenshots/1.webp", alt: "Screenshot 1" },
+    { src: "/screenshots/2.webp", alt: "Screenshot 2" },
+    { src: "/screenshots/3.webp", alt: "Screenshot 3" },
+    { src: "/screenshots/7.webp", alt: "Screenshot 4" },
   ];
   const logos = [
-    { src: "/logo_black.png", alt: "Massera Logo Black", style: {} },
-    { src: "/logo_white.png", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
+    { src: "/logo_black.webp", alt: "Massera Logo Black", style: {} },
+    { src: "/logo_white.webp", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
   ];
 
   return (
@@ -564,7 +564,7 @@ function AwardsSection() {
         <div className="w-full max-w-md rounded-xl shadow-lg border bg-card py-8 px-4 flex flex-col items-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Awards</h2>
           <img
-            src="/award_berlin.png"
+            src="/award_berlin.webp"
             alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
             className="w-full rounded-xl"
           />
