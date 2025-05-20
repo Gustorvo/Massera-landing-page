@@ -268,21 +268,21 @@ function Header() {
 }
 
 function HeroSection() {
-  // const logoPath = useLogoPath() // No longer needed for hero image
-
+  // Optimized hero image for AVIF/responsive performance and correct 16:9 aspect ratio
   return (
     <section id="top" className="pt-8 md:pt-12 pb-20 md:pb-32 bg-background relative">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
-          <Image
-            src="/hero_bg.webp"
-            alt="Massera Hero Background"
-            width={1200}
-            height={1200}
-            className="w-[64rem] md:w-[80rem] h-auto mb-6"
-            priority
-            sizes="(max-width: 960px) 960px, 1200px"
-          />
+          <div className="relative w-full max-w-[64rem] aspect-video mb-6 mx-auto">
+            <Image
+              src="/hero_bg.webp"
+              alt="Massera Hero Background"
+              fill
+              className="object-cover rounded-xl"
+              priority
+              sizes="(max-width: 640px) 100vw, (max-width: 960px) 80vw, 1200px"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
             Coming soon on Meta Horizon Store!
           </h1>
