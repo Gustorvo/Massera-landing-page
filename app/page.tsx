@@ -540,6 +540,8 @@ function MediaSection() {
                     alt={logo.alt}
                     className="h-40 w-auto bg-transparent transition-transform hover:scale-105"
                     style={logo.style}
+                    width={logo.src === "/logo_black.webp" ? 1066 : 1065}
+                    height={logo.src === "/logo_black.webp" ? 1264 : 1264}
                   />
                 </button>
               ))}
@@ -610,6 +612,8 @@ function AwardsSection() {
             src="/award_berlin.webp"
             alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
             className="w-full rounded-xl"
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
