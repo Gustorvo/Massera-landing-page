@@ -269,12 +269,13 @@ function HeroSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
-            src="/hero_bg.png"
+            src="/hero_bg.webp"
             alt="Massera Hero Background"
             width={1200}
             height={1200}
             className="w-[64rem] md:w-[80rem] h-auto mb-6"
             priority
+            sizes="(max-width: 960px) 960px, 1200px"
           />
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
             Coming soon on Meta Horizon Store!
