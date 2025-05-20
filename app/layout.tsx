@@ -41,6 +41,22 @@ export default function RootLayout({
         <meta name="twitter:image" content="https://massera.app/og-image.jpg" />
         <meta name="twitter:site" content="@masseraxr" />
         <meta name="twitter:creator" content="@masseraxr" />
+        <style>{`
+          .hero-lcp {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: hsl(215, 16%, 27%);
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          @media (min-width: 768px) {
+            .hero-lcp {
+              font-size: 1.25rem;
+              line-height: 1.75rem;
+            }
+          }
+        `}</style>
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>

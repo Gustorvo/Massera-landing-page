@@ -9,12 +9,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
 import React, { useState, useEffect, useRef } from "react"
 
-if (typeof window !== "undefined") {
-  const style = document.createElement('style');
-  style.innerHTML = `@media (min-width: 768px) { .hero-lcp { font-size: 1.25rem !important; line-height: 1.75rem !important; } }`;
-  document.head.appendChild(style);
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -374,7 +368,7 @@ function TrailerSection() {
           >
             {isInView ? (
               <iframe
-                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve&width=214&height=121"
                 style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                 allowFullScreen
@@ -382,7 +376,7 @@ function TrailerSection() {
               ></iframe>
             ) : (
               <img
-                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve"
+                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve&width=214&height=121"
                 alt="Massera Trailer Thumbnail"
                 className="object-cover w-full h-full"
                 style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
