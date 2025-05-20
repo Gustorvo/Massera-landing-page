@@ -382,7 +382,7 @@ function TrailerSection() {
               ></iframe>
             ) : (
               <img
-                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve"
                 alt="Massera Trailer Thumbnail"
                 className="object-cover w-full h-full"
                 style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
