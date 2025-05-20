@@ -3,6 +3,7 @@ import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,14 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-787YJJ5WC7"></script>
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-787YJJ5WC7');
-        ` }} />
         {/* SEO Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
@@ -49,6 +42,18 @@ export default function RootLayout({
         <meta name="twitter:site" content="@masseraxr" />
         <meta name="twitter:creator" content="@masseraxr" />
       </head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-787YJJ5WC7"
+        strategy="lazyOnload"
+      />
+      <Script id="gtag-init" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-787YJJ5WC7');
+        `}
+      </Script>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {children}
