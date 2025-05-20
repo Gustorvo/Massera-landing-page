@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 export default function Home() {
   return (
@@ -314,6 +314,34 @@ function HeroSection() {
 }
 
 function TrailerSection() {
+  const [isInView, setIsInView] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsInView(true);
+              observer && observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      observer.observe(containerRef.current);
+    } else {
+      // Fallback for old browsers: load immediately
+      setIsInView(true);
+    }
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="trailer" className="py-20 bg-card text-card-foreground scroll-mt-16">
       <div className="container px-4 md:px-6">
@@ -323,18 +351,33 @@ function TrailerSection() {
             Massera: A Shared Home Massage Ritual in Mixed Reality
           </p>
 
-          <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768"
-              style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-            ></iframe>
+          <div
+            className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center"
+            ref={containerRef}
+            style={{ minHeight: '200px' }}
+          >
+            {isInView ? (
+              <iframe
+                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowFullScreen
+                title="Massera Trailer"
+              ></iframe>
+            ) : (
+              <img
+                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                alt="Massera Trailer Thumbnail"
+                className="object-cover w-full h-full"
+                style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function FaqSection() {
