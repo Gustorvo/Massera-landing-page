@@ -9,6 +9,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
 import React, { useState, useEffect, useRef } from "react"
 
+if (typeof window !== "undefined") {
+  const style = document.createElement('style');
+  style.innerHTML = `@media (min-width: 768px) { .hero-lcp { font-size: 1.25rem !important; line-height: 1.75rem !important; } }`;
+  document.head.appendChild(style);
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -280,7 +286,17 @@ function HeroSection() {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
             Coming soon on Meta Horizon Store!
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+          <p
+            className="hero-lcp"
+            style={{
+              fontSize: "1.125rem",
+              lineHeight: "1.75rem",
+              color: "hsl(215, 16%, 27%)",
+              maxWidth: "42rem",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
             Massera is a reimagined way to build massage skills and connection in Mixed Reality. With guided touch and
             interactive body mapping inspired by professionals, it turns gestures into moments of care and calm—making
             real connection effortless. No experience needed. Just follow the cues and grow together on Meta Quest 3 /
