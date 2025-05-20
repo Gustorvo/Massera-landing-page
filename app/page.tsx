@@ -9,12 +9,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
 import React, { useState, useEffect, useRef } from "react"
 
-if (typeof window !== "undefined") {
-  const style = document.createElement('style');
-  style.innerHTML = `@media (min-width: 768px) { .hero-lcp { font-size: 1.25rem !important; line-height: 1.75rem !important; } }`;
-  document.head.appendChild(style);
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
