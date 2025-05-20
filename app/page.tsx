@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 export default function Home() {
   return (
@@ -269,12 +269,13 @@ function HeroSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <Image
-            src="/hero_bg.png"
+            src="/hero_bg.webp"
             alt="Massera Hero Background"
             width={1200}
             height={1200}
             className="w-[64rem] md:w-[80rem] h-auto mb-6"
             priority
+            sizes="(max-width: 960px) 960px, 1200px"
           />
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
             Coming soon on Meta Horizon Store!
@@ -313,6 +314,34 @@ function HeroSection() {
 }
 
 function TrailerSection() {
+  const [isInView, setIsInView] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsInView(true);
+              observer && observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      observer.observe(containerRef.current);
+    } else {
+      // Fallback for old browsers: load immediately
+      setIsInView(true);
+    }
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="trailer" className="py-20 bg-card text-card-foreground scroll-mt-16">
       <div className="container px-4 md:px-6">
@@ -322,18 +351,33 @@ function TrailerSection() {
             Massera: A Shared Home Massage Ritual in Mixed Reality
           </p>
 
-          <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768"
-              style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-            ></iframe>
+          <div
+            className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center"
+            ref={containerRef}
+            style={{ minHeight: '200px' }}
+          >
+            {isInView ? (
+              <iframe
+                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowFullScreen
+                title="Massera Trailer Video Player"
+              ></iframe>
+            ) : (
+              <img
+                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49"
+                alt="Massera Trailer Thumbnail"
+                className="object-cover w-full h-full"
+                style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function FaqSection() {
@@ -449,14 +493,14 @@ function FaqSection() {
 function MediaSection() {
   const [openImage, setOpenImage] = useState<string | null>(null);
   const images = [
-    { src: "/screenshots/1.PNG", alt: "Screenshot 1" },
-    { src: "/screenshots/2.PNG", alt: "Screenshot 2" },
-    { src: "/screenshots/3.jpg", alt: "Screenshot 3" },
-    { src: "/screenshots/7.PNG", alt: "Screenshot 4" },
+    { src: "/screenshots/1.webp", alt: "Screenshot 1" },
+    { src: "/screenshots/2.webp", alt: "Screenshot 2" },
+    { src: "/screenshots/3.webp", alt: "Screenshot 3" },
+    { src: "/screenshots/7.webp", alt: "Screenshot 4" },
   ];
   const logos = [
-    { src: "/logo_black.png", alt: "Massera Logo Black", style: {} },
-    { src: "/logo_white.png", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
+    { src: "/logo_black.webp", alt: "Massera Logo Black", style: {} },
+    { src: "/logo_white.webp", alt: "Massera Logo White", style: { backgroundColor: '#222', borderRadius: '0.5rem', padding: '0.5rem' } },
   ];
 
   return (
@@ -496,6 +540,8 @@ function MediaSection() {
                     alt={logo.alt}
                     className="h-40 w-auto bg-transparent transition-transform hover:scale-105"
                     style={logo.style}
+                    width={logo.src === "/logo_black.webp" ? 1066 : 1065}
+                    height={logo.src === "/logo_black.webp" ? 1264 : 1264}
                   />
                 </button>
               ))}
@@ -563,9 +609,11 @@ function AwardsSection() {
         <div className="w-full max-w-md rounded-xl shadow-lg border bg-card py-8 px-4 flex flex-col items-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Awards</h2>
           <img
-            src="/award_berlin.png"
+            src="/award_berlin.webp"
             alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
             className="w-full rounded-xl"
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
