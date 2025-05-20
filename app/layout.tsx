@@ -1,9 +1,9 @@
-import type React from "react"
+import React from "react"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Script from "next/script"
+import AnalyticsScripts from "./analytics-scripts"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -42,20 +42,9 @@ export default function RootLayout({
         <meta name="twitter:site" content="@masseraxr" />
         <meta name="twitter:creator" content="@masseraxr" />
       </head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-787YJJ5WC7"
-        strategy="lazyOnload"
-      />
-      <Script id="gtag-init" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-787YJJ5WC7');
-        `}
-      </Script>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+          <AnalyticsScripts />
           {children}
         </ThemeProvider>
       </body>

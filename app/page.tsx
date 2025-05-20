@@ -9,6 +9,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLogoPath } from "./theme-utils"
 import React, { useState, useEffect, useRef } from "react"
 
+if (typeof window !== "undefined") {
+  const style = document.createElement('style');
+  style.innerHTML = `@media (min-width: 768px) { .hero-lcp { font-size: 1.25rem !important; line-height: 1.75rem !important; } }`;
+  document.head.appendChild(style);
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -280,7 +286,17 @@ function HeroSection() {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-3xl">
             Coming soon on Meta Horizon Store!
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+          <p
+            className="hero-lcp"
+            style={{
+              fontSize: "1.125rem",
+              lineHeight: "1.75rem",
+              color: "hsl(215, 16%, 27%)",
+              maxWidth: "42rem",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
             Massera is a reimagined way to build massage skills and connection in Mixed Reality. With guided touch and
             interactive body mapping inspired by professionals, it turns gestures into moments of care and calm—making
             real connection effortless. No experience needed. Just follow the cues and grow together on Meta Quest 3 /
@@ -535,7 +551,7 @@ function MediaSection() {
                   style={{ background: "none", padding: 0, border: "none", cursor: "pointer" }}
                   className="focus:outline-none"
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
                     className="h-40 w-auto bg-transparent transition-transform hover:scale-105"
@@ -608,7 +624,7 @@ function AwardsSection() {
       <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
         <div className="w-full max-w-md rounded-xl shadow-lg border bg-card py-8 px-4 flex flex-col items-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Awards</h2>
-          <img
+          <Image
             src="/award_berlin.webp"
             alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
             className="w-full rounded-xl"
