@@ -362,7 +362,7 @@ function TrailerSection() {
                 style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                 allowFullScreen
-                title="Massera Trailer"
+                title="Massera Trailer Video Player"
               ></iframe>
             ) : (
               <img
