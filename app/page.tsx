@@ -717,9 +717,6 @@ function Footer() {
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Contact
-            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
