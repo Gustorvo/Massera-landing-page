@@ -543,7 +543,9 @@ function MediaSection() {
                 aria-label={`Open ${img.alt}`}
                 style={{ background: "none", padding: 0, border: "none", cursor: "pointer" }}
               >
-                <Image src={img.src} alt={img.alt} width={800} height={450} className="object-cover w-full h-full transition-transform hover:scale-105" />
+                <Image src={img.src} alt={img.alt} width={800} height={450} className="object-cover w-full h-full transition-transform hover:scale-105" 
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
               </button>
             ))}
           </div>
@@ -565,6 +567,7 @@ function MediaSection() {
                     style={logo.style}
                     width={logo.src === "/logo_black.webp" ? 1066 : 1065}
                     height={logo.src === "/logo_black.webp" ? 1264 : 1264}
+                    sizes="(max-width: 640px) 50vw, 25vw"
                   />
                 </button>
               ))}
