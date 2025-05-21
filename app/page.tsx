@@ -637,13 +637,15 @@ function AwardsSection() {
       <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
         <div className="w-full max-w-md rounded-xl shadow-lg border bg-card py-8 px-4 flex flex-col items-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Awards</h2>
-          <Image
-            src="/award_berlin.webp"
-            alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
-            className="w-full rounded-xl"
-            width={1000}
-            height={1000}
-          />
+          <a href="https://devpost.com/software/massage-xr" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-105">
+            <Image
+              src="/award_berlin.webp"
+              alt="XRCC Hack 2024 Meta Hobbies & Skill Building Winner Berlin"
+              className="w-full rounded-xl"
+              width={1000}
+              height={1000}
+            />
+          </a>
         </div>
       </div>
     </section>
