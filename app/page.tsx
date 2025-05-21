@@ -577,7 +577,7 @@ function MediaSection() {
             </div>
           </div>
           <a
-            href="https://drive.google.com/uc?export=view&id=1ZCIQnsFMmbmWHIfF27Ke6aEUrM6boq0o"
+            href="https://www.dropbox.com/scl/fi/52p4ucsj8z6yxnuuh2stb/Massera-media-archive.zip?rlkey=nmooy47pvym39m1ibpwy31igo&e=1&st=s98c1hs2&dl=1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium shadow hover:bg-primary/90 transition-colors"
