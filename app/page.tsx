@@ -388,12 +388,15 @@ function TrailerSection() {
                 title="Massera Trailer Video Player"
               ></iframe>
             ) : (
-              <img
+              <Image
                 src="/video_thumbnail.webp"
                 alt="Massera Trailer Thumbnail"
+                width={1200}
+                height={675}
                 className="object-cover w-full h-full"
                 style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
                 loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
               />
             )}
           </div>
