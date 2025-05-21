@@ -20,6 +20,7 @@ export default function Home() {
         <MediaSection />
         <CreditsSection />
         <AwardsSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
@@ -53,6 +54,9 @@ function Header() {
           </a>
           <a href="#media" className="text-sm font-medium hover:text-primary transition-colors">
             Media
+          </a>
+          <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+            Contact
           </a>
           <a
             href="https://www.meta.com/experiences/9851138398306895/"
@@ -172,6 +176,15 @@ function Header() {
                 }}
               >
                 Media
+              </a>
+              <a
+                href="#contact"
+                className="text-lg font-medium hover:text-primary transition-colors"
+                onClick={(e) => {
+                  document.querySelector(".sheet-overlay")?.dispatchEvent(new MouseEvent("click", { bubbles: true }))
+                }}
+              >
+                Contact
               </a>
               <a
                 href="https://www.meta.com/experiences/9851138398306895/"
@@ -368,7 +381,7 @@ function TrailerSection() {
           >
             {isInView ? (
               <iframe
-                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve&width=214&height=121"
+                src="https://player.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw?metadata-video-title=Video&accent-color=%23455768&poster=https://www.massera.app/video_thumbnail.webp"
                 style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                 allowFullScreen
@@ -376,7 +389,7 @@ function TrailerSection() {
               ></iframe>
             ) : (
               <img
-                src="https://image.mux.com/FZYIfZ00qT8ITic52Gnl02Hn14QckE4EdpFgxOdWgXhPw/thumbnail.png?time=49&fit_mode=preserve&width=214&height=121"
+                src="/video_thumbnail.webp"
                 alt="Massera Trailer Thumbnail"
                 className="object-cover w-full h-full"
                 style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
@@ -631,6 +644,48 @@ function AwardsSection() {
   );
 }
 
+function ContactSection() {
+  const logoPath = useLogoPath();
+  return (
+    <section id="contact" className="py-20 bg-muted scroll-mt-16">
+      <div className="container px-4 md:px-6 flex flex-col items-center text-center space-y-8">
+        <Image src={logoPath || "/placeholder.svg"} alt="Massera Logo" width={64} height={64} className="mx-auto mb-4" />
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-2">Contact Us</h2>
+        <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
+          We'd love to hear from you! For questions, feedback, or partnership inquiries, please reach out via email or connect with us on social media.
+        </p>
+        <div className="flex flex-col items-center gap-2 mb-6">
+          <a href="mailto:info@arvoxrlabs.com" className="text-primary font-semibold text-lg hover:underline">info@arvoxrlabs.com</a>
+        </div>
+        <div className="flex flex-row justify-center gap-6 mt-4">
+          <Link href="https://x.com/masseraxr" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-muted-foreground hover:text-primary transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" fill="currentColor" />
+            </svg>
+          </Link>
+          <Link href="https://discord.gg/enZQmXMJ" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground hover:text-primary transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.885-.608 1.283a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.283.077.077 0 0 0-.079-.036c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" fill="currentColor" />
+            </svg>
+          </Link>
+          <Link href="https://www.instagram.com/masseraxr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </Link>
+          <Link href="https://www.tiktok.com/@masseraxr?_t=ZN-8wJuyXMm6HW&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-muted-foreground hover:text-primary transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="currentColor" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const logoPath = useLogoPath()
 
@@ -661,9 +716,6 @@ function Footer() {
             </Link>
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
-            </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Contact
             </Link>
           </nav>
 
